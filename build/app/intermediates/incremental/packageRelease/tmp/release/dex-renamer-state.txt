@@ -1,4 +1,0 @@
-#Tue May 07 14:32:50 CST 2019
-base.0=D\:\\flutter\\taxed_calculator\\build\\app\\intermediates\\transforms\\dexMerger\\release\\0
-path.0=classes.dex
-renamed.0=classes.dex

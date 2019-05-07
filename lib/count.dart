@@ -64,7 +64,7 @@ class _CountPageState extends State<CountPage> {
       ),
       keyboardType: TextInputType.number,
       maxLines: 1,
-      onChanged: (input) => _billInput = input,
+      onChanged: (input) => setState(() => _billInput = input),
     );
   }
 
@@ -78,7 +78,7 @@ class _CountPageState extends State<CountPage> {
         ),
         keyboardType: TextInputType.number,
         maxLines: 1,
-        onChanged: (input) => _taxPointInput = input,
+        onChanged: (input) => setState(() => _taxPointInput = input),
       ),
     );
   }

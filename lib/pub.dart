@@ -74,7 +74,7 @@ class _PubPageState extends State<PubPage> {
         ),
         keyboardType: TextInputType.number,
         maxLines: 1,
-        onChanged: (input) => _unitInput = input,
+        onChanged: (input) => setState(() => _unitInput = input),
       ),
     );
   }
@@ -83,14 +83,13 @@ class _PubPageState extends State<PubPage> {
     return Padding(
       padding: EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 30.0),
       child: TextField(
-        decoration: InputDecoration(
-          labelText: "价税合计:",
-          labelStyle: TextStyle(fontSize: 26.0),
-        ),
-        keyboardType: TextInputType.number,
-        maxLines: 1,
-        onChanged: (input) => _sumInput = input,
-      ),
+          decoration: InputDecoration(
+            labelText: "价税合计:",
+            labelStyle: TextStyle(fontSize: 26.0),
+          ),
+          keyboardType: TextInputType.number,
+          maxLines: 1,
+          onChanged: (input) => setState(() => _sumInput = input)),
     );
   }
 

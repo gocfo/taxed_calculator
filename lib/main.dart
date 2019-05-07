@@ -38,9 +38,8 @@ class _HomeState extends State<Home> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        onTap: (int index) {
-          setState(() => _currentIndex = index);
-        },
+        currentIndex: _currentIndex,
+        onTap: (int index) => setState(() => _currentIndex = index),
         items: [
           BottomNavigationBarItem(
             icon: Icon(

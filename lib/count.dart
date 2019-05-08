@@ -23,35 +23,33 @@ class _CountPageState extends State<CountPage> {
     var sum = ((bill / (100 - taxPoint)) * 100 * 100).toInt() / 100;
     var tax = ((sum - bill) * 100).toInt() / 100;
     return AlertDialog(
-      content: Container(
-        height: 180.0,
-        child: ListView(
-          scrollDirection: Axis.vertical,
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
-              child: Text(
-                "税点: " + taxPoint.toString() + "％",
-                style: TextStyle(color: Colors.lightBlue, fontSize: 26.0),
-              ),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
+            child: Text(
+              "税点: " + taxPoint.toString() + "％",
+              style: TextStyle(color: Colors.lightBlue, fontSize: 20.0),
             ),
-            Text(
-              "货款: " + bill.toString(),
-              style: TextStyle(color: Colors.blueAccent, fontSize: 26.0),
+          ),
+          Text(
+            "货款: " + bill.toString(),
+            style: TextStyle(color: Colors.blueAccent, fontSize: 20.0),
+          ),
+          Text(
+            "税款: " + tax.toString(),
+            style: TextStyle(color: Colors.blueAccent, fontSize: 20.0),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 0.0),
+            child: Text(
+              "对公总额: " + sum.toString(),
+              style: TextStyle(color: Colors.black, fontSize: 20.0),
             ),
-            Text(
-              "税款: " + tax.toString(),
-              style: TextStyle(color: Colors.blueAccent, fontSize: 26.0),
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 0.0),
-              child: Text(
-                "对公总额: " + sum.toString(),
-                style: TextStyle(color: Colors.black, fontSize: 26.0),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

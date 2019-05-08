@@ -21,35 +21,33 @@ class _PubPageState extends State<PubPage> {
     var bill = (sum / (_taxedRate / 100 + 1.0) * 100000).toInt() / 100000;
     var ton = (sum / unit * 10).toInt() / 10;
     return AlertDialog(
-      content: Container(
-        height: 200.0,
-        child: ListView(
-          scrollDirection: Axis.vertical,
-          children: <Widget>[
-            Text(
-              "价税合计: " + sum.toString(),
-              style: TextStyle(color: Colors.lightBlue, fontSize: 26.0),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            "价税合计: " + sum.toString(),
+            style: TextStyle(color: Colors.lightBlue, fontSize: 20.0),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
+            child: Text(
+              "税率: " + _taxedRate.toString() + "％",
+              style: TextStyle(color: Colors.lightBlue, fontSize: 20.0),
             ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 16.0),
-              child: Text(
-                "税率: " + _taxedRate.toString() + "％",
-                style: TextStyle(color: Colors.lightBlue, fontSize: 26.0),
-              ),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 0.0),
+            child: Text(
+              "金额: " + bill.toString(),
+              style: TextStyle(color: Colors.blueAccent, fontSize: 20.0),
             ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 0.0),
-              child: Text(
-                "金额: " + bill.toString(),
-                style: TextStyle(color: Colors.blueAccent, fontSize: 26.0),
-              ),
-            ),
-            Text(
-              "数量: " + ton.toString() + "（吨）",
-              style: TextStyle(color: Colors.blueAccent, fontSize: 26.0),
-            ),
-          ],
-        ),
+          ),
+          Text(
+            "数量: " + ton.toString() + "（吨）",
+            style: TextStyle(color: Colors.blueAccent, fontSize: 20.0),
+          ),
+        ],
       ),
     );
   }

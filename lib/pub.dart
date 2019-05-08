@@ -5,21 +5,21 @@ class PubPage extends StatefulWidget {
 }
 
 class _PubPageState extends State<PubPage> {
-  final _taxedRate = 13.0;
+  final double _taxedRate = 13.0;
   String _sumInput = '';
   String _unitInput = '';
 
   Widget _count(BuildContext context) {
-    var sum = double.tryParse(_sumInput);
-    var unit = double.tryParse(_unitInput);
+    double sum = double.tryParse(_sumInput);
+    double unit = double.tryParse(_unitInput);
     if ((sum == null) || (unit == null)) {
       return AlertDialog(content: Text("非法输入-非数字"));
     }
     if ((sum.toInt() <= 0) || (unit.toInt() <= 0)) {
       return AlertDialog(content: Text("无效输入-非法值"));
     }
-    var bill = (sum / (_taxedRate / 100 + 1.0) * 100000).toInt() / 100000;
-    var ton = (sum / unit * 10).toInt() / 10;
+    double bill = sum / (_taxedRate / 100 + 1.0);
+    double ton = sum / unit;
     return AlertDialog(
       content: Column(
         mainAxisSize: MainAxisSize.min,
@@ -39,12 +39,12 @@ class _PubPageState extends State<PubPage> {
           Padding(
             padding: EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 0.0),
             child: Text(
-              "金额: " + bill.toString(),
+              "金额: " + bill.toStringAsFixed(5),
               style: TextStyle(color: Colors.blueAccent, fontSize: 20.0),
             ),
           ),
           Text(
-            "数量: " + ton.toString() + "（吨）",
+            "数量: " + ton.toStringAsFixed(1) + "（吨）",
             style: TextStyle(color: Colors.blueAccent, fontSize: 20.0),
           ),
         ],

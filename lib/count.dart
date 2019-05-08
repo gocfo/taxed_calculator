@@ -9,8 +9,8 @@ class _CountPageState extends State<CountPage> {
   String _taxPointInput = '';
 
   Widget _count(BuildContext context) {
-    var bill = double.tryParse(_billInput);
-    var taxPoint = double.tryParse(_taxPointInput);
+    double bill = double.tryParse(_billInput);
+    double taxPoint = double.tryParse(_taxPointInput);
     if ((bill == null) || (taxPoint == null)) {
       return AlertDialog(content: Text("非法输入-非数字"));
     }
@@ -20,8 +20,8 @@ class _CountPageState extends State<CountPage> {
     if (taxPoint.toInt() >= 100) {
       return AlertDialog(content: Text("税点大于一百"));
     }
-    var sum = ((bill / (100 - taxPoint)) * 100 * 100).toInt() / 100;
-    var tax = ((sum - bill) * 100).toInt() / 100;
+    double sum = (bill / (100 - taxPoint)) * 100;
+    double tax = sum - bill;
     return AlertDialog(
       content: Column(
         mainAxisSize: MainAxisSize.min,
@@ -39,13 +39,13 @@ class _CountPageState extends State<CountPage> {
             style: TextStyle(color: Colors.blueAccent, fontSize: 20.0),
           ),
           Text(
-            "税款: " + tax.toString(),
+            "税款: " + tax.toStringAsFixed(2),
             style: TextStyle(color: Colors.blueAccent, fontSize: 20.0),
           ),
           Padding(
             padding: EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 0.0),
             child: Text(
-              "对公总额: " + sum.toString(),
+              "对公总额: " + sum.toStringAsFixed(2),
               style: TextStyle(color: Colors.black, fontSize: 20.0),
             ),
           ),

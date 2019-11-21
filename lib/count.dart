@@ -89,9 +89,9 @@ class _CountPageState extends State<CountPage> {
         style: TextStyle(fontSize: 26),
       ),
       onPressed: () => showDialog(
-            context: context,
-            builder: _count,
-          ),
+        context: context,
+        builder: _count,
+      ),
     );
   }
 
